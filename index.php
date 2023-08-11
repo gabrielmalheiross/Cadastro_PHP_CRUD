@@ -36,7 +36,7 @@
             <input type="email" class="form-control" name="email" placeholder="Digitar...">
           </div>
           <div class="mb-3">
-            <label for="data" class="form-label">Data de Nascimento:</label>
+            <label for="data_nacimento" class="form-label">Data de Nascimento:</label>
             <input type="date" class="form-control" name="data-nascimento" placeholder="Digitar...">
           </div>
           <div class="mb-3">
