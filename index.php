@@ -11,8 +11,6 @@
   <title>Cadastro</title>
 </head>
 
-
-
 <body>
   <div class="container">
     <div class="row">
@@ -36,8 +34,8 @@
             <input type="email" class="form-control" name="email" placeholder="Digitar...">
           </div>
           <div class="mb-3">
-            <label for="data_nacimento" class="form-label">Data de Nascimento:</label>
-            <input type="date" class="form-control" name="data-nascimento" placeholder="Digitar...">
+            <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
+            <input type="date" class="form-control" name="data_nascimento" placeholder="Digitar...">
           </div>
           <div class="mb-3">
             <input type="submit" class="btn btn-success">
