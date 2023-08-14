@@ -2,7 +2,7 @@
     $server = "localhost";
     $user = "root";
     $pass = "";
-    $bd = "jesus";
+    $bd = "gabriel";
 
     if ($conn = mysqli_connect($server, $user, $pass, $bd)) {
         echo "Conectado";
