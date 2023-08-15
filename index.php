@@ -18,7 +18,7 @@
         <h1 class="display-5 fw-bold">CRUD PHP com mySQL</h1>
         <p class="col-md-8 fs-4">Treinamento de CRUD com PHP e mySQL</p>
         <a href="cadastro.php" class="btn btn-primary btn-lg" type="button">Cadastro</a>
-        <a href="cadastro.php" class="btn btn-primary btn-lg" type="button">Pesquisar</a>
+        <a href="pesquisar.php" class="btn btn-primary btn-lg" type="button">Pesquisar</a>
     </div>
       </div>
     </div>

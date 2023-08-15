@@ -42,7 +42,7 @@ $database = new DB();
             foreach($dados as $valor){
               echo '
               <tr>
-                <th scope="row">'.$valor['cod_pessoa'].'</th>
+                <th scope="row">'.$valor['id'].'</th>
                 <td>'.$valor['nome'].'</td>
                 <td>'.$valor['endereco'].'</td>
                 <td>'.$valor['telefone'].'</td>
@@ -77,7 +77,7 @@ $database = new DB();
               
               echo '
               <tr>
-                <th scope="row">'.$dados[$i]['cod_pessoa'].'</th>
+                <th scope="row">'.$dados[$i]['id'].'</th>
                 <td>'.$dados[$i]['nome'].'</td>
                 <td>'.$dados[$i]['endereco'].'</td>
                 <td>'.$dados[$i]['telefone'].'</td>
