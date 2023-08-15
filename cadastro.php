@@ -2,38 +2,45 @@
 <html lang="pt-br">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>Tela de cadastro</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <title>Cadastro</title>
 </head>
 
 <body>
   <div class="container">
     <div class="row">
-      <?php
-        include "conexao.php";
-
-        $nome = $_POST['nome'];
-        $endereco = $_POST['endereco'];
-        $telefone = $_POST['telefone'];
-        $email = $_POST['email'];
-        $data_nascimento = $_POST['data_nascimento'];
-
-        $sql = "INSERT INTO `pessoas`
-        (`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) 
-        VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
-
-        if (mysqli_query($conn, $sql)) {
-            mensagem("$nome cadastrado com sucesso!", 'success');
-        } else {
-            mensagem("$nome não cadastrado!", 'danger');
-        }
-      ?>  
-
-      <a href="index.php" class="btn btn-primary">Voltar</a>
+      <div class="col">
+        <h1>Cadastro de Jesus</h1>
+        <form action="cadastro_script.php" method="POST">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome completo:</label>
+            <input type="text" class="form-control" name="nome" placeholder="Digitar..." required>
+          </div>
+          <div class="mb-3">
+            <label for="endereco" class="form-label">Endereço:</label>
+            <input type="text" class="form-control" name="endereco" placeholder="Digitar..." required>
+          </div>
+          <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" class="form-control" name="telefone" placeholder="Digitar..." required>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Digitar..." required>
+          </div>
+          <div class="mb-3">
+            <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
+            <input type="date" class="form-control" name="data_nascimento" placeholder="Digitar..." required>
+          </div>
+          <div class="mb-3">
+            <input type="submit" class="btn btn-success">
+          </div>
+        </form>
+        <a href="index.php">Voltar</a>
+      </div>
     </div>
   </div>
 

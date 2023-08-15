@@ -2,9 +2,9 @@
     $server = "localhost";
     $user = "root";
     $pass = "";
-    $bd = "gabriel";
+    $db = "gabriel";
 
-    if ($conn = mysqli_connect($server, $user, $pass, $bd)) {
+    if ($conn = mysqli_connect($server, $user, $pass, $db)) {
         echo "Conectado";
     } else {
         echo "Erro";
