@@ -7,7 +7,7 @@
   <title>Bootstrap demo</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <title>Cadastro</title>
+  <title>Alteração de Cadastro</title>
 </head>
 
 <body>
@@ -16,20 +16,23 @@
       <?php
         include "conexao.php";
 
+        $id = $_POST['id'];
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $data_nascimento = $_POST['data_nascimento'];
 
-        $sql = "INSERT INTO `pessoas`
-        (`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) 
-        VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+        // $sql = "INSERT INTO `pessoas`
+        // (`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) 
+        // VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+
+        $sql = "UPDATE `pessoas` SET `nome` = '$nome', `endereco` = '$endereco', `telefone` = '$telefone', `email` = '$email', `data_nascimento` = '$data_nascimento' WHERE id = $id";
 
         if (mysqli_query($conn, $sql)) {
-            mensagem("$nome cadastrado com sucesso!", 'success');
+            mensagem("$nome alterado com sucesso!", 'success');
         } else {
-            mensagem("$nome NÃo cadastrado!", 'danger');
+            mensagem("$nome NÃO alterado!", 'danger');
         }
       ?>  
 

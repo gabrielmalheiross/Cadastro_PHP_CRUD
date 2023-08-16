@@ -2,10 +2,10 @@
     $server = "localhost";
     $user = "root";
     $pass = "";
-    $db = "gabriel";
+    $db = "jesus";
 
     if ($conn = mysqli_connect($server, $user, $pass, $db)) {
-        echo "Conectado";
+        // echo "Conectado";
     } else {
         echo "Erro";
     }
@@ -16,4 +16,11 @@
             $texto
         </div>";
     }
+
+    function mostra_data($data){
+        $d = explode('-', $data);
+        $escreve = $d[2] ."/" .$d[1] ."/" .$d[0];
+        return $escreve;
+    }
+
 ?>

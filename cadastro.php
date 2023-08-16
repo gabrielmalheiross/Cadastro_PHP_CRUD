@@ -5,9 +5,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tela de cadastro</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
+  
+  <title>Tela de cadastro</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
             <input type="submit" class="btn btn-success">
           </div>
         </form>
-        <a href="index.php">Voltar</a>
+        <a href="index.php" class="btn btn-primary">Voltar</a>
       </div>
     </div>
   </div>

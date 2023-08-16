@@ -5,9 +5,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tela de pesquisa</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <title>Tela de pesquisa</title>
 </head>
 
 <body>
@@ -42,15 +42,19 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
+                            <th scope="col">E-mail</th>
                             <th scope="col">Data de Nascimento</th>
+                            <th scope="col">Funções</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <?php
+
 
                         while ($linha = mysqli_fetch_assoc($dados)) {
                             $id = $linha['id'];
@@ -58,7 +62,7 @@
                             $endereco = $linha['endereco'];
                             $telefone = $linha['telefone'];
                             $email = $linha['email'];
-                            $data_nascimento = $linha['data_nascimento'];
+                            $data_nascimento = mostra_data($linha['data_nascimento']);
 
                             echo "<tr>
                                     <th scope='row'>$id</th>
@@ -67,18 +71,52 @@
                                     <td>$telefone</td>
                                     <td>$email</td>
                                     <td>$data_nascimento</td>
+                                    <td width=150px>
+                                        <a href='cadastro_edit.php?id=$id' class='btn btn-success btn-sm'>Editar</a>
+                                        <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onclick =" . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
+                                    </td>
                                 </tr>";
-                        }   
+                        }
 
                         ?>
-
+                        <!-- onclick = "pegar_dados($id, '$nome')" -->
 
                     </tbody>
                 </table>
-                <a href="index.php" class="btn btn-primary">Voltar</a>
+                <a href="index.php" class="btn btn-primary">Voltar para o início</a>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="confirma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação de exclusão</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="excluir_script.php" method="POST">
+                        <p>Deseja realmente excluir <b id="nome_pessoa">Nome da pessoa</b>?</p> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <input type="hidden" name="id" id="id_pessoa" value="">
+                    <input type="hidden" name="nome" id="nome_pessoa1" value="">
+                    <input type="submit" class="btn btn-danger" value="Sim">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function pegar_dados(id, nome) {
+            document.getElementById('nome_pessoa').innerHTML = nome;
+            document.getElementById('id_pessoa').value = id;
+            document.getElementById('nome_pessoa1').value = nome;
+        }
+    </script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
