@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
 
     <title>Tela de pesquisa</title>
 </head>
@@ -58,6 +59,7 @@
 
                         while ($linha = mysqli_fetch_assoc($dados)) {
                             $id = $linha['id'];
+                            $foto = $linha['foto'];
                             $nome = $linha['nome'];
                             $endereco = $linha['endereco'];
                             $telefone = $linha['telefone'];
@@ -65,7 +67,7 @@
                             $data_nascimento = mostra_data($linha['data_nascimento']);
 
                             echo "<tr>
-                                    <th scope='row'>$id</th>
+                                    <th> <img src='img/$foto' class='lista_foto'></th>
                                     <td>$nome</td>
                                     <td>$endereco</td>
                                     <td>$telefone</td>

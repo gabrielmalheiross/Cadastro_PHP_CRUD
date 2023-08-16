@@ -23,4 +23,14 @@
         return $escreve;
     }
 
+    function mover_foto($vetor_foto) {
+        if ((!$vetor_foto['error']) && ($vetor_foto['size'] <= 500000)){
+            $nome_arquivo = date('dmYHis') .".jpg";
+            move_uploaded_file($vetor_foto['tmp_name'], "img/".$nome_arquivo);
+            return $nome_arquivo;
+        } else {
+            return 0;
+        }
+    }
+
 ?>

@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col">
         <h1>Cadastro de Jesus</h1>
-        <form action="cadastro_script.php" method="POST">
+        <form action="cadastro_script.php" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="nome" class="form-label">Nome completo:</label>
             <input type="text" class="form-control" name="nome" placeholder="Digitar..." required>
@@ -34,6 +34,10 @@
           <div class="mb-3">
             <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
             <input type="date" class="form-control" name="data_nascimento" placeholder="Digitar..." required>
+          </div>
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto:</label>
+            <input type="file" accept="image/*" class="form-control" name="foto" placeholder="Digitar..." required>
           </div>
           <div class="mb-3">
             <input type="submit" class="btn btn-success">
