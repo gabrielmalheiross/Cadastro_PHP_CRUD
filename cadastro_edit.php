@@ -39,7 +39,7 @@
           </div>
           <div class="mb-3">
             <label for="telefone" class="form-label">Telefone:</label>
-            <input type="text" class="form-control" name="telefone" placeholder="Digitar..." required value="<?php echo $linha['telefone']?>">
+            <input type="tel" class="form-control" name="telefone" placeholder="Digitar..." required value="<?php echo $linha['telefone']?>">
           <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="email" class="form-control" name="email" placeholder="Digitar..." required value="<?php echo $linha['email']?>">

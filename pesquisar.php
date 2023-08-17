@@ -48,7 +48,7 @@
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">E-mail</th>
-                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">Nascimento</th>
                             <th scope="col">Funções</th>
                         </tr>
                     </thead>
@@ -60,6 +60,12 @@
                         while ($linha = mysqli_fetch_assoc($dados)) {
                             $id = $linha['id'];
                             $foto = $linha['foto'];
+                            if (!$foto == null) {
+                                $mostra_foto = "<img src='img/$foto' class='lista_foto'>";
+                            } else {
+                                $mostra_foto = null;
+                            }
+
                             $nome = $linha['nome'];
                             $endereco = $linha['endereco'];
                             $telefone = $linha['telefone'];
@@ -67,7 +73,7 @@
                             $data_nascimento = mostra_data($linha['data_nascimento']);
 
                             echo "<tr>
-                                    <th> <img src='img/$foto' class='lista_foto'></th>
+                                    <th>$mostra_foto</th>
                                     <td>$nome</td>
                                     <td>$endereco</td>
                                     <td>$telefone</td>
@@ -99,7 +105,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="excluir_script.php" method="POST">
-                        <p>Deseja realmente excluir <b id="nome_pessoa">Nome da pessoa</b>?</p> 
+                        <p>Deseja realmente excluir <b id="nome_pessoa">Nome da pessoa</b>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>

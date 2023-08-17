@@ -22,22 +22,22 @@
           </div>
           <div class="mb-3">
             <label for="endereco" class="form-label">Endereço:</label>
-            <input type="text" class="form-control" name="endereco" placeholder="Digitar..." required>
+            <input type="text" class="form-control" name="endereco" placeholder="Digitar...">
           </div>
           <div class="mb-3">
             <label for="telefone" class="form-label">Telefone:</label>
             <input type="text" class="form-control" name="telefone" placeholder="Digitar..." required>
           <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" name="email" placeholder="Digitar..." required>
+            <input type="email" class="form-control" name="email" placeholder="Digitar...">
           </div>
           <div class="mb-3">
             <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
-            <input type="date" class="form-control" name="data_nascimento" placeholder="Digitar..." required>
+            <input type="date" class="form-control" name="data_nascimento" placeholder="Digitar...">
           </div>
           <div class="mb-3">
             <label for="foto" class="form-label">Foto:</label>
-            <input type="file" accept="image/*" class="form-control" name="foto" placeholder="Digitar..." required>
+            <input type="file" accept="image/*" class="form-control" name="foto" placeholder="Digitar...">
           </div>
           <div class="mb-3">
             <input type="submit" class="btn btn-success">
