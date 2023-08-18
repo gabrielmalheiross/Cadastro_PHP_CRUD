@@ -44,6 +44,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Foto</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
@@ -73,6 +74,7 @@
                             $data_nascimento = mostra_data($linha['data_nascimento']);
 
                             echo "<tr>
+                                    <th>$id</th>
                                     <th>$mostra_foto</th>
                                     <td>$nome</td>
                                     <td>$endereco</td>

@@ -38,6 +38,7 @@ $database = new DB();
             </tr>
           </thead>
           <tbody>
+            
             <?php
             foreach($dados as $valor){
               echo '
@@ -50,7 +51,7 @@ $database = new DB();
               </tr>';
             }
             ?>
-            
+
           </tbody>
         </table>
 
