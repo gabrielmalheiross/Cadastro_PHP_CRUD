@@ -13,6 +13,7 @@
 <body>
 
   <?php
+    include "../validar.php";
     include "conexao.php";
 
     $id = $_GET['id'] ?? null;

@@ -21,7 +21,6 @@ $database = new DB();
         <div class="container-fluid py-5">
           <?php
           $dados = $database->get_results( "SELECT * FROM pessoas where nome <> '' " );
-
           
           print_r($dados);
           ?>

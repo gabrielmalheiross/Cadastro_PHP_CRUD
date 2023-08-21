@@ -1,3 +1,7 @@
+<?php
+  include "../validar.php";
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -20,6 +24,7 @@
           <a href="cadastro.php" class="btn btn-primary btn-lg" type="button">Cadastro</a>
           <a href="pesquisar.php" class="btn btn-primary btn-lg" type="button">Pesquisar</a>
           <a href="grafico.php" class="btn btn-primary btn-lg" type="button">Gráfico</a>
+          <a href="../logout.php" class="btn btn-danger btn-lg" type="button">Log Out</a>
         </div>
       </div>
     </div>

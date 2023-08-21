@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="css/estilo.css" rel="stylesheet"><
-
-    <title>Tela de pesquisa</title>
+    <link href="css/estilo.css" rel="stylesheet">
+    < <title>Tela de pesquisa</title>
 </head>
 
 <body>
@@ -19,13 +18,16 @@
     } else {
         $pesquisa = null;
     }
-
+    // include "../validar.php";
     include "conexao.php";
+    include "./base/DB.class.php";
+    $database = new DB();
 
-    $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'";
+    // $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'";
 
-    $dados = mysqli_query($conn, $sql);
+    $dados = $database->get_results("SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'");
 
+    // print_r($dados);
     ?>
 
     <div class="container">
@@ -56,37 +58,55 @@
                     <tbody>
 
                         <?php
-
-
-                        while ($linha = mysqli_fetch_assoc($dados)) {
-                            $id = $linha['id'];
-                            $foto = $linha['foto'];
-                            if (!$foto == null) {
-                                $mostra_foto = "<img src='img/$foto' class='lista_foto'>";
-                            } else {
-                                $mostra_foto = null;
-                            }
-
-                            $nome = $linha['nome'];
-                            $endereco = $linha['endereco'];
-                            $telefone = $linha['telefone'];
-                            $email = $linha['email'];
-                            $data_nascimento = mostra_data($linha['data_nascimento']);
-
-                            echo "<tr>
-                                    <th>$id</th>
-                                    <th>$mostra_foto</th>
-                                    <td>$nome</td>
-                                    <td>$endereco</td>
-                                    <td>$telefone</td>
-                                    <td>$email</td>
-                                    <td>$data_nascimento</td>
+                        foreach ($dados as $valor) {
+                            echo '
+                                <tr>
+                                    <th scope="row">' . $valor['id'] . '</th>
+                                    <td> <img src="img/' . $valor['foto'] . '" class="lista_foto"/> </td> 
+                                    <td>' . $valor['nome'] . '</td>
+                                    <td>' . $valor['endereco'] . '</td>
+                                    <td>' . $valor['telefone'] . '</td>
+                                    <td>' . $valor['email'] . '</td>
+                                    <td>' . $valor['data_nascimento'] . '</td>
                                     <td width=150px>
-                                        <a href='cadastro_edit.php?id=$id' class='btn btn-success btn-sm'>Editar</a>
-                                        <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onclick =" . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
-                                    </td>
-                                </tr>";
+                                         <a href="cadastro_edit.php?id=$id" class="btn btn-success btn-sm">Editar</a>
+                                         <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirma" onclick ="pegar_dados('.$valor['id'].', '.$valor['nome'].')">Excluir</a>
+                                     </td>
+                                </tr>';
                         }
+
+
+
+
+                        // while ($linha = mysqli_fetch_assoc($dados)) {
+                        //     $id = $linha['id'];
+                        //     $foto = $linha['foto'];
+                        //     if (!$foto == null) {
+                        //         $mostra_foto = "<img src='img/$foto' class='lista_foto'>";
+                        //     } else {
+                        //         $mostra_foto = null;
+                        //     }
+
+                        //     $nome = $linha['nome'];
+                        //     $endereco = $linha['endereco'];
+                        //     $telefone = $linha['telefone'];
+                        //     $email = $linha['email'];
+                        //     $data_nascimento = mostra_data($linha['data_nascimento']);
+
+                        //     echo "<tr>
+                        //             <th>$id</th>
+                        //             <th>$mostra_foto</th>
+                        //             <td>$nome</td>
+                        //             <td>$endereco</td>
+                        //             <td>$telefone</td>
+                        //             <td>$email</td>
+                        //             <td>$data_nascimento</td>
+                        //             <td width=150px>
+                        //                 <a href='cadastro_edit.php?id=$id' class='btn btn-success btn-sm'>Editar</a>
+                        //                 <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onclick =" . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
+                        //             </td>
+                        //         </tr>";
+                        // }
 
                         ?>
                         <!-- onclick = "pegar_dados($id, '$nome')" -->
@@ -128,7 +148,7 @@
         }
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 

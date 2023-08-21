@@ -15,6 +15,7 @@
     <div class="row">
       
       <?php
+      include "../validar.php";
       include "conexao.php";
 
       $nome = $_POST['nome'];

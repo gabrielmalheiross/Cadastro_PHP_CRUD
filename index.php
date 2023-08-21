@@ -30,17 +30,29 @@
                         <button type="submit" class="btn btn-primary">Acessar</button>
                     </form>
                     <?php
+
                     if (isset($_POST['login'])) {
                         $login = $_POST['login'];
-                        $senha = $_POST['senha'];
-                        if (($login == "admin") && ($senha == "admin")) {
-                            session_start();
-                            $_SESSION['user'] = "Robson";
-                            header("location: restrito");
-                        } else {
-                            echo "Login Inválido";
-                        }
+                        $senha = md5($_POST['senha']);
+
+                        include "restrito/conexao.php";
+                        $sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'";
+
+                        if ($result = mysqli_query($conn, $sql)) {
+                            $num_registros = mysqli_num_rows($result);
+                            if ($num_registros == 1) {
+                                $linha = mysqli_fetch_assoc($result);
+                                if (($login == $linha['login']) && ($senha == $linha['senha'])) {
+                                    
+                                    session_start();
+                                    $_SESSION['login'] = "Gabriel";
+                                    header("location: restrito");
+                                    
+                                } else { echo "Login Inválido"; }
+                            } else { echo "Login ou senha não encontrados ou inválido."; }
+                        } else { echo "Nenhum resultado do Banco de Dados."; }
                     }
+
                     ?>
                 </div>
             </div>

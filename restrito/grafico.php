@@ -1,7 +1,8 @@
 <?php
-include './base/DB.class.php';
-include './base/Funcoes.class.php';
-include './conexao.php';
+include "../validar.php";
+include "./base/DB.class.php";
+include "./base/Funcoes.class.php";
+include "./conexao.php";
 $conn = new DB();
 // $id = $_GET['id'] ?? '';
 /*
@@ -44,6 +45,13 @@ $total_estados = $conn->get_results($sql_total_estados);
     <title>Gráfico de Municípios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 <body>
 
@@ -88,6 +96,7 @@ $total_estados = $conn->get_results($sql_total_estados);
                 </div>
             </div>
         </div>
+        <a href="./index.php" class="btn btn-primary">Voltar</a>
     </div>
 
 
@@ -95,12 +104,6 @@ $total_estados = $conn->get_results($sql_total_estados);
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <script>
         Highcharts.chart('container', {
@@ -154,6 +157,7 @@ $total_estados = $conn->get_results($sql_total_estados);
             }]
         });
     </script>
+
 
 </body>
 
